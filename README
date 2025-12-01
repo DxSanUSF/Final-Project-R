@@ -1,0 +1,35 @@
+# maritalAffairs
+
+This R package explores the relationship between marital satisfaction, demographics, and reported extramarital affairs using the classic Affairs dataset.
+
+## Data
+
+The package is based on a survey of 601 married individuals, including:
+
+- Number of extramarital affairs in the past year
+- Gender, age, years married
+- Presence of children
+- Religiousness, education, occupation rating
+- Self-rated marital satisfaction
+
+## Main functions
+
+- `affairs_summary()`  
+  Summarizes the number of affairs and the proportion of individuals with any affairs.
+
+- `affairs_rate_by_group(data, group_var)`  
+  Calculates the proportion of individuals with at least one affair by a grouping variable (e.g., gender, rating, children).
+
+- `fit_affairs_model()`  
+  Fits a logistic regression model for having any affair vs. none and returns an S3 object of class `affairs_model`.
+
+- `plot_affairs_by_rating()`  
+  Plots the proportion of individuals with any affair by marital satisfaction rating.
+
+- `plot_affairs_by_age_years()`  
+  Visualizes number of affairs as a function of age and years married.
+
+## Object system and license
+
+- Object system: S3 (`affairs_model` with `print.affairs_model()`).
+- License: See the `DESCRIPTION` file for the license used.
