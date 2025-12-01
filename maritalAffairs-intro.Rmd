@@ -1,0 +1,60 @@
+---
+title: "Exploring Marital Satisfaction and Extramarital Affairs"
+author: "David Sanchez"
+output: html_document
+vignette: >
+  %\VignetteIndexEntry{Marital Affairs: Package Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+library(maritalAffairs)
+library(dplyr)
+library(ggplot2)
+```
+
+## Introduction
+
+In this vignette, I demonstrate how to use the `maritalAffairs` package to
+explore the relationship between marital satisfaction, demographic variables,
+and reported extramarital affairs. The underlying data come from a survey of
+601 married individuals, including information on age, years married, religion,
+education, and self-rated marriage quality.
+
+## The Affairs dataset
+
+dplyr::glimpse(Affairs)
+summary(Affairs$affairs)
+
+## Summary of affairs
+
+summary_list <- affairs_summary()
+summary_list$overall
+summary_list$any_affair
+
+## Affair rates by group
+
+affairs_rate_by_group(Affairs, "gender")
+
+affairs_rate_by_group(Affairs, "rating")
+
+## Visualization examples
+
+plot_affairs_by_rating()
+
+plot_affairs_by_age_years()
+
+## Modeling the probability of an affair
+
+mod <- fit_affairs_model()
+mod
+
+summary(mod$model)
+
+## Reflection
+
+In this project, I used R to package a complete workflow: from data
+documentation and defensive input checking to modeling and visualization.
+By bundling the functions and the dataset into a reusable package,
+it becomes easier to share the analysis and extend it in future work.
